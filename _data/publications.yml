@@ -22,7 +22,7 @@ main:
   #   notes: Oral Presentation
 
   - title: Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding
-    authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu
+    authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*
     conference_short: AAAI 2026
     conference: Association for the Advancement of Artificial Intelligence <strong>(AAAI)</strong>, 2026.
     pdf: null
@@ -33,7 +33,7 @@ main:
     notes: Poster
 
   - title: Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization
-    authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu
+    authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*
     conference_short: AISTATS 2026
     conference: The 29th International Conference on Artificial Intelligence and Statistics <strong>(AISTATS 2026)</strong>.
     pdf: null
@@ -44,7 +44,7 @@ main:
     notes: Poster
 
   - title: SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique
-    authors: Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu</strong>, Wanli Shi, Zhaogeng Liu, Bin Gu
+    authors: Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu</strong>, Wanli Shi, Zhaogeng Liu, Bin Gu*
     conference_short: CVPR 2026
     conference: Conference on Computer Vision and Pattern Recognition 2026 <strong>(CVPR 2026)</strong>.
     pdf: null
@@ -55,7 +55,7 @@ main:
     notes: Under Review
 
   - title: Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization
-    authors: Wanli Shi, Teng Hou, <strong>Dongxu Liu</strong>, Bin Gu
+    authors: Wanli Shi, Teng Hou, <strong>Dongxu Liu</strong>, Bin Gu*
     conference_short: ICML 2026
     conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
     pdf: null
@@ -66,7 +66,7 @@ main:
     notes: Under Review
 
   - title: Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective
-    authors: Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu</strong>, Wanli Shi, Bin Gu
+    authors: Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu</strong>, Wanli Shi, Bin Gu*
     conference_short: ICML 2026
     conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
     pdf: null
