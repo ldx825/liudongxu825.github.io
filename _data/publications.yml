@@ -1,77 +1,77 @@
 main:
-
   # - title: Continual Learning for Abdominal Multi-Organ and Tumor Segmentation
   #   authors: Yixiao Zhang, Xinyi Li, Huimiao Chen, Alan Yuille, <strong>Yaoyao Liu*</strong>, Zongwei Zhou* (*Corresponding authors)
-  #   conference_short: MICCAI
+  #   conference_short: MICCAI 2023
   #   conference: International Conference on Medical Image Computing and Computer-Assisted Intervention <strong>(MICCAI)</strong>, 2023.
   #   pdf: https://arxiv.org/pdf/2306.00988.pdf
   #   code: https://github.com/MrGiovanni/ContinualLearning
+  #   page: null
   #   bibtex: https://bib.yliu.me/MICCAI23.txt
   #   image: ./assets/img/teaser_example_2.png
   #   notes: Early Accept
 
-  # - title: "Mnemonics Training: Multi-Class Incremental Learning without Forgetting"
+  # - title: Mnemonics Training: Multi-Class Incremental Learning without Forgetting
   #   authors: <strong>Yaoyao Liu</strong>, Yuting Su, An-An Liu, Bernt Schiele, Qianru Sun
-  #   conference_short: CVPR
+  #   conference_short: CVPR 2020
   #   conference: IEEE/CVF Conference on Computer Vision and Pattern Recognition <strong>(CVPR)</strong>, 2020.
   #   pdf: https://arxiv.org/pdf/2002.10211.pdf
   #   code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
   #   page: https://class-il.mpi-inf.mpg.de/mnemonics/
   #   bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
-  #   notes: Oral Presentation
   #   image: ./assets/img/teaser_example.png
+  #   notes: Oral Presentation
 
-  - title: "Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding"
+  - title: Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding
     authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu
     conference_short: AAAI 2026
     conference: Association for the Advancement of Artificial Intelligence <strong>(AAAI)</strong>, 2026.
-    # pdf: https://arxiv.org/pdf/2002.10211.pdf
-    # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    # page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    # bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    pdf: null
+    code: null
+    page: null
+    bibtex: null
+    image: null
     notes: Poster
-    # image: ./assets/img/teaser_example.png
 
-  - title: "Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization"
+  - title: Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization
     authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu
     conference_short: AISTATS 2026
     conference: The 29th International Conference on Artificial Intelligence and Statistics <strong>(AISTATS 2026)</strong>.
-    # pdf: https://arxiv.org/pdf/2002.10211.pdf
-    # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    # page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    # bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    pdf: null
+    code: null
+    page: null
+    bibtex: null
+    image: null
     notes: Poster
-    # image: ./assets/img/teaser_example.png
 
-  - title: "SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique"
-    authors: Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu<strong>, Wanli Shi, Zhaogeng Liu, Bin Gu
+  - title: SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique
+    authors: Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu</strong>, Wanli Shi, Zhaogeng Liu, Bin Gu
     conference_short: CVPR 2026
     conference: Conference on Computer Vision and Pattern Recognition 2026 <strong>(CVPR 2026)</strong>.
-    # pdf: https://arxiv.org/pdf/2002.10211.pdf
-    # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    # page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    # bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    pdf: null
+    code: null
+    page: null
+    bibtex: null
+    image: null
     notes: Under Review
-    # image: ./assets/img/teaser_example.png
 
-  - title: "Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization"
-    authors: Wanli Shi, Teng Hou, <strong>Dongxu Liu<strong>, Bin Gu
+  - title: Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization
+    authors: Wanli Shi, Teng Hou, <strong>Dongxu Liu</strong>, Bin Gu
     conference_short: ICML 2026
     conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
-    # pdf: https://arxiv.org/pdf/2002.10211.pdf
-    # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    # page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    # bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    pdf: null
+    code: null
+    page: null
+    bibtex: null
+    image: null
     notes: Under Review
-    # image: ./assets/img/teaser_example.png
 
-  - title: "Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective"
-    authors: Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu<strong>, Wanli Shi, Bin Gu
+  - title: Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective
+    authors: Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu</strong>, Wanli Shi, Bin Gu
     conference_short: ICML 2026
     conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
-    # pdf: https://arxiv.org/pdf/2002.10211.pdf
-    # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
-    # page: https://class-il.mpi-inf.mpg.de/mnemonics/
-    # bibtex: https://class-il.mpi-inf.mpg.de/mnemonics/
+    pdf: null
+    code: null
+    page: null
+    bibtex: null
+    image: null
     notes: Under Review
-    # image: ./assets/img/teaser_example.png
