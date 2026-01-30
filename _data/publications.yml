@@ -35,7 +35,7 @@ main:
   - title: "Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization"
     authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu
     conference_short: AISTATS 2026
-    conference: The 29th International Conference on Artificial Intelligence and Statistics <strong>(AISTATS 2026)<strong>.
+    conference: The 29th International Conference on Artificial Intelligence and Statistics <strong>(AISTATS 2026)</strong>.
     # pdf: https://arxiv.org/pdf/2002.10211.pdf
     # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     # page: https://class-il.mpi-inf.mpg.de/mnemonics/
@@ -46,7 +46,7 @@ main:
   - title: "SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique"
     authors: Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu<strong>, Wanli Shi, Zhaogeng Liu, Bin Gu
     conference_short: CVPR 2026
-    conference: Conference on Computer Vision and Pattern Recognition 2026 <strong>(CVPR 2026)<strong>.
+    conference: Conference on Computer Vision and Pattern Recognition 2026 <strong>(CVPR 2026)</strong>.
     # pdf: https://arxiv.org/pdf/2002.10211.pdf
     # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     # page: https://class-il.mpi-inf.mpg.de/mnemonics/
@@ -57,7 +57,7 @@ main:
   - title: "Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization"
     authors: Wanli Shi, Teng Hou, <strong>Dongxu Liu<strong>, Bin Gu
     conference_short: ICML 2026
-    conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)<strong>.
+    conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
     # pdf: https://arxiv.org/pdf/2002.10211.pdf
     # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     # page: https://class-il.mpi-inf.mpg.de/mnemonics/
@@ -68,7 +68,7 @@ main:
   - title: "Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective"
     authors: Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu<strong>, Wanli Shi, Bin Gu
     conference_short: ICML 2026
-    conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)<strong>.
+    conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
     # pdf: https://arxiv.org/pdf/2002.10211.pdf
     # code: https://github.com/yaoyao-liu/class-incremental-learning/tree/main/mnemonics-training
     # page: https://class-il.mpi-inf.mpg.de/mnemonics/
