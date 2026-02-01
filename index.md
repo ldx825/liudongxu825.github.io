@@ -31,3 +31,4 @@ I am currently a second-year undergraduate student in the College of Artificial 
 **2025**<!---->
 - Jilin University First-Class Scholarship
 - Jilin University Excellent Student
+- Second Prize of Jilin Province College Students Mathematics Competition
