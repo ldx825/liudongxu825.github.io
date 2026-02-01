@@ -21,10 +21,10 @@ main:
   #   image: ./assets/img/teaser_example.png
   #   notes: Oral Presentation
 
-  - title: Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding
+  - title: "Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding"
     authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*
     conference_short: AAAI 2026
-    conference: Association for the Advancement of Artificial Intelligence <strong>(AAAI 2026)</strong>.
+    conference: "Association for the Advancement of Artificial Intelligence <strong>(AAAI 2026)</strong>."
     pdf: null
     code: null
     page: null
@@ -32,10 +32,10 @@ main:
     image: null
     notes: Poster
 
-  - title: Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization
+  - title: "Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization"
     authors: Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*
     conference_short: AISTATS 2026
-    conference: The 29th International Conference on Artificial Intelligence and Statistics <strong>(AISTATS 2026)</strong>.
+    conference: "The 29th International Conference on Artificial Intelligence and Statistics <strong>(AISTATS 2026)</strong>."
     pdf: null
     code: null
     page: null
@@ -43,10 +43,10 @@ main:
     image: null
     notes: Poster
 
-  - title: SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique
+  - title: "SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique"
     authors: Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu</strong>, Wanli Shi, Zhaogeng Liu, Bin Gu*
     conference_short: CVPR 2026
-    conference: Conference on Computer Vision and Pattern Recognition 2026 <strong>(CVPR 2026)</strong>.
+    conference: "Conference on Computer Vision and Pattern Recognition 2026 <strong>(CVPR 2026)</strong>."
     pdf: null
     code: null
     page: null
@@ -54,10 +54,10 @@ main:
     image: null
     notes: Under Review
 
-  - title: Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization
+  - title: "Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization"
     authors: Wanli Shi, Teng Hou, <strong>Dongxu Liu</strong>, Bin Gu*
     conference_short: ICML 2026
-    conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
+    conference: "Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>."
     pdf: null
     code: null
     page: null
@@ -65,10 +65,10 @@ main:
     image: null
     notes: Under Review
 
-  - title: Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective
+  - title: "Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective"
     authors: Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu</strong>, Wanli Shi, Bin Gu*
     conference_short: ICML 2026
-    conference: Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>.
+    conference: "Forty-third International Conference on Machine Learning <strong>(ICML 2026)</strong>."
     pdf: null
     code: null
     page: null
