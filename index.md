@@ -4,7 +4,7 @@ layout: homepage
 
 ## About Me
 
-I am currently a second-year undergraduate student in the College of Artificial Intelligence at Jilin University, majoring in Artificial Intelligence.
+I am currently a second-year undergraduate student in [the College of Artificial Intelligence at Jilin University](https://sai.jlu.edu.cn/), majoring in Artificial Intelligence.
 
 ## Research Interests
 
