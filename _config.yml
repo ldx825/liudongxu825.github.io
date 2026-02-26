@@ -14,6 +14,7 @@ canonical: https://minimal-light-theme.yliu.me/
 # Links 
 # If you don't need one of them, you may delete the corresponding line.
 # google_scholar: https://scholar.google.com/
+google_scholar: https://scholar.google.com/citations?hl=en&view_op=list_works&gmla=AF9nlQt3g3IM1MIAoxwaSTpA5HwmfMhVx65zkuV5k_2M7obLx_720IWtn4FUK7JANZqkL3LU4XKRjbt7TXep-g&user=053eRGQAAAAJ
 # cv_link: assets/files/curriculum_vitae.pdf
 github_link: https://github.com/ldx825
 # linkedin: https://www.linkedin.com/
@@ -21,7 +22,7 @@ github_link: https://github.com/ldx825
 
 # Images (e.g., your profile picture and your website's favicon) 
 # "favicon" and "favicon_dark" are used for the light and dark modes, respectively. 
-avatar: ./assets/img/avatar.png
+avatar: ./assets/img/26.2.26学术主页照片2.0.png
 favicon: ./assets/img/favicon.png
 favicon_dark: ./assets/img/favicon-dark.png
 
