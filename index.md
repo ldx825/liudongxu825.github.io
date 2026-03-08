@@ -8,9 +8,10 @@ I am currently a second-year undergraduate student in [the College of Artificial
 
 ## Research Interests
 
+- **LLM**
+- **MLLM**
 - **Optimization** 
 - **Spiking Neural Network**
-- **Quantization of LLM**
   
 <!--
 ## News
