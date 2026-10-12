@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dongxu Liu — Undergraduate, Jilin University</title>
+<meta name="description" content="Dongxu Liu is an undergraduate in the College of Artificial Intelligence at Jilin University working on optimization, spiking neural networks, and large language models.">
+<meta name="author" content="Dongxu Liu">
+<meta name="keywords" content="Dongxu Liu, Jilin University, spiking neural network, LLM, MLLM, optimization, zeroth-order optimization, SNN">
+<link rel="canonical" href="https://ldx825.github.io/liudongxu825.github.io/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dongxu Liu — Undergraduate, Jilin University">
+<meta property="og:description" content="Undergraduate in the College of Artificial Intelligence at Jilin University. Optimization, spiking neural networks, and large language models.">
+<meta property="og:url" content="https://ldx825.github.io/liudongxu825.github.io/">
+<link rel="icon" href="assets/img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Source+Serif+4:wght@300;400;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<script>
+(function () {
+  var stored = null;
+  try { stored = localStorage.getItem('theme'); } catch (e) {}
+  var theme = stored || (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  document.documentElement.setAttribute('data-theme', theme);
+})();
+</script>
+<style>
+  :root {
+    --bg: #FAFAF9;
+    --bg-elev: #FFFFFF;
+    --text: #1C1D21;
+    --text-muted: #6B6E76;
+    --text-faint: #6E727B;
+    --rule: #E3E3DF;
+    --rule-strong: #B4B4AE;
+    --accent: #1E40E0;
+    --accent-quiet: #EEF1FE;
+    --status-accepted: #12704A;
+    --focus: #1E40E0;
+    --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --space-1: 8px;
+    --space-2: 16px;
+    --space-3: 24px;
+    --space-4: 32px;
+    --space-6: 48px;
+    --space-8: 64px;
+    --space-12: 96px;
+  }
+
+  html[data-theme="dark"] {
+    --bg: #0C0D10;
+    --bg-elev: #14161B;
+    --text: #E7E8EC;
+    --text-muted: #9BA0AB;
+    --text-faint: #7C818C;
+    --rule: #25282F;
+    --rule-strong: #3E424B;
+    --accent: #8AA4FF;
+    --accent-quiet: #161B33;
+    --status-accepted: #4FD29B;
+    --focus: #8AA4FF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-serif);
+    font-size: 17px;
+    line-height: 1.65;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3 { font-family: var(--font-sans); margin: 0; }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: 0;
+  }
+
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    z-index: 10;
+    background: var(--bg-elev);
+    color: var(--text);
+    padding: var(--space-1) var(--space-2);
+    border: 1px solid var(--rule-strong);
+  }
+  .skip:focus { left: var(--space-3); top: var(--space-3); }
+
+  .shell {
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 3rem);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--space-3);
+  }
+
+  /* ---------- Masthead ---------- */
+
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+  }
+  .masthead__name { font-weight: 700; letter-spacing: -0.01em; }
+  .masthead__nav { display: flex; flex-wrap: wrap; gap: var(--space-1) var(--space-3); }
+  .masthead__nav a {
+    color: var(--text-muted);
+    padding-bottom: 3px;
+    transition: color 180ms ease, box-shadow 180ms ease;
+  }
+  .masthead__nav a:hover { color: var(--accent); text-decoration: none; }
+  .masthead__nav a[aria-current="true"] {
+    color: var(--text);
+    box-shadow: inset 0 -2px 0 0 var(--accent);
+  }
+
+  #theme-toggle {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    flex: none;
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    border-radius: 50%;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: color 180ms ease, border-color 180ms ease;
+  }
+  #theme-toggle:hover { color: var(--accent); border-color: var(--accent); }
+
+  /* ---------- Hero ---------- */
+
+  .hero {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    column-gap: var(--space-3);
+    row-gap: var(--space-4);
+    padding-block: var(--space-8) var(--space-6);
+  }
+  .hero__text { grid-column: 1 / 9; }
+  .hero__photo { grid-column: 10 / -1; justify-self: end; }
+  .hero h1 {
+    font-size: clamp(2.75rem, 7vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 0.95;
+    margin-bottom: var(--space-3);
+  }
+  .hero__rule {
+    width: 64px;
+    height: 1px;
+    background: var(--accent);
+    border: 0;
+    margin: 0 0 var(--space-3);
+  }
+  .hero__role {
+    font-family: var(--font-sans);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+    margin: 0;
+  }
+  .avatar {
+    width: clamp(140px, 22vw, 208px);
+    height: auto;
+    border-radius: 50%;
+    display: block;
+  }
+
+  /* ---------- Sections ---------- */
+
+  .section {
+    padding-block: var(--space-6);
+    border-top: 1px solid var(--rule);
+    scroll-margin-top: var(--space-3);
+  }
+  .section-label {
+    grid-column: 1 / 4;
+    align-self: start;
+    position: sticky;
+    top: var(--space-3);
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .section-body { grid-column: 4 / -1; }
+
+  .lede { font-size: 1.125rem; margin: 0 0 var(--space-4); }
+
+  /* ---------- Link pills ---------- */
+
+  .link-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+  }
+  .link-list a {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 7px 12px;
+    border: 1px solid var(--rule-strong);
+    color: var(--text);
+    transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+  }
+  .link-list a:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: var(--accent-quiet);
+    text-decoration: none;
+  }
+  .link-list svg { width: 15px; height: 15px; flex: none; }
+
+  /* ---------- Interest tags ---------- */
+
+  .interest-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-1) var(--space-2);
+  }
+  .interest-list li {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 5px 10px;
+    border: 1px solid var(--rule-strong);
+    color: var(--text-muted);
+  }
+
+  /* ---------- Index rows ---------- */
+
+  .row {
+    display: grid;
+    grid-template-columns: 3rem minmax(0, 1fr);
+    column-gap: var(--space-3);
+    padding-block: var(--space-4);
+    border-top: 1px solid var(--rule);
+  }
+  .row:first-of-type { border-top: 0; padding-top: 0; }
+  .row-index {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+    padding-top: 0.4em;
+  }
+
+  .entry-title {
+    font-family: var(--font-serif);
+    font-size: 1.0625rem;
+    font-weight: 600;
+    line-height: 1.45;
+    margin: 0 0 var(--space-1);
+  }
+  .entry-authors {
+    margin: 0 0 var(--space-1);
+    color: var(--text-muted);
+    font-size: 0.9375rem;
+  }
+  .entry-authors strong { color: var(--text); font-weight: 600; }
+  .entry-note { margin: 0; font-size: 0.9375rem; }
+  .entry-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-1) var(--space-2);
+  }
+  .entry-venue {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .entry-year {
+    font-family: var(--font-mono);
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+  a.entry-year { color: var(--accent); }
+
+  .badge {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.625rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 3px 7px;
+    border: 1px solid var(--rule-strong);
+    color: var(--text-muted);
+  }
+  .badge--accepted { border-color: var(--status-accepted); color: var(--status-accepted); }
+  .badge--review { border-style: dashed; }
+  .badge--unit { border-style: dashed; color: var(--text-faint); }
+
+  /* Draft-preview banner: remove together with the draft rows */
+  .draft-banner {
+    background: var(--accent-quiet);
+    border-bottom: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-muted);
+    padding-block: var(--space-1);
+  }
+  .draft-banner strong { color: var(--accent); font-weight: 500; }
+
+  .skills {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    font-family: var(--font-sans);
+    font-size: 0.875rem;
+    color: var(--text-muted);
+  }
+  .skills li { padding-right: var(--space-2); border-right: 1px solid var(--rule); }
+  .skills li:last-child { border-right: 0; padding-right: 0; }
+
+  /* ---------- Footer ---------- */
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-2);
+    padding-block: var(--space-6) var(--space-8);
+    border-top: 1px solid var(--rule);
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    color: var(--text-faint);
+  }
+  .footer a { color: var(--text-faint); transition: color 180ms ease; }
+  .footer a:hover { color: var(--accent); }
+
+  /* ---------- Responsive ---------- */
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: var(--space-2);
+    }
+    .hero { grid-template-columns: minmax(0, 1fr); }
+    .section-label { position: static; grid-column: 1 / -1; }
+    .section-body { grid-column: 1 / -1; }
+    .hero__text { grid-column: 1 / -1; }
+    .hero__photo { grid-column: 1 / -1; justify-self: start; order: -1; }
+    .row:first-of-type { padding-top: var(--space-2); }
+  }
+
+  @media (max-width: 640px) {
+    body { font-size: 16px; }
+    .masthead { flex-wrap: wrap; row-gap: var(--space-2); }
+    .masthead__nav { order: 3; width: 100%; gap: var(--space-1) var(--space-2); font-size: 0.75rem; }
+    .row {
+      grid-template-columns: 2rem minmax(0, 1fr);
+      column-gap: var(--space-2);
+      padding-block: var(--space-3);
+    }
+    .hero { padding-block: var(--space-6) var(--space-4); }
+    .section { padding-block: var(--space-4); }
+    .lede { font-size: 1.0625rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition: none !important;
+      animation: none !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<div class="draft-banner">
+  <div class="shell"><strong>Draft preview.</strong> Rows tagged <span class="badge badge--unit">TBD</span> are unverified placeholders — confirm or delete before publishing.</div>
+</div>
+
+<header class="shell">
+  <div class="masthead">
+    <span class="masthead__name">Dongxu Liu</span>
+    <nav class="masthead__nav" aria-label="Sections">
+      <a href="#about">About</a>
+      <a href="#news">News</a>
+      <a href="#experience">Experience</a>
+      <a href="#publications">Publications</a>
+      <a href="#awards">Awards</a>
+      <a href="#services">Services</a>
+    </nav>
+    <button id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"></button>
+  </div>
+
+  <div class="hero">
+    <div class="hero__text">
+      <h1>Dongxu Liu</h1>
+      <hr class="hero__rule">
+      <p class="hero__role">Undergraduate Student · College of Artificial Intelligence, Jilin University</p>
+    </div>
+    <div class="hero__photo">
+      <img class="avatar" src="assets/img/avatar-dongxu.jpg" width="640" height="640" alt="Portrait of Dongxu Liu">
+    </div>
+  </div>
+</header>
+
+<main id="main" class="shell">
+
+  <section class="section grid" id="about">
+    <h2 class="section-label">About</h2>
+    <div class="section-body">
+      <p class="lede">I am currently a second-year undergraduate student in <a href="https://sai.jlu.edu.cn/">the College of Artificial Intelligence at Jilin University</a>, majoring in Artificial Intelligence.</p>
+      <ul class="link-list">
+        <li>
+          <a href="mailto:liudx9924@mails.jlu.edu.cn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" aria-hidden="true"><rect x="2.5" y="4.75" width="19" height="14.5" rx="1.6"/><path d="m3.6 6.4 8.4 6 8.4-6"/></svg>
+            Email
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?hl=en&amp;user=053eRGQAAAAJ">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269ZM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14Z"/></svg>
+            Google Scholar
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/ldx825">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+            GitHub
+          </a>
+        </li>
+        <li>
+          <a href="assets/files/ldx_26_3_1_Academic_CV_Template.pdf">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6 2h7.2L19 7.8V20a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm6.7 1.9v4.6h4.6L12.7 3.9Z"/><rect x="8" y="12" width="8" height="1.6"/><rect x="8" y="15.6" width="8" height="1.6"/></svg>
+            CV
+          </a>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section grid" id="interests">
+    <h2 class="section-label">Research Interests</h2>
+    <div class="section-body">
+      <ul class="interest-list">
+        <li>LLM</li>
+        <li>MLLM</li>
+        <li>Optimization</li>
+        <li>Spiking Neural Network</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section grid" id="news">
+    <h2 class="section-label">News</h2>
+    <div class="section-body">
+
+      <div class="row">
+        <span class="row-index">01</span>
+        <div>
+          <p class="entry-note">One line per item — what happened, with links where they exist.</p>
+          <p class="entry-meta"><span class="entry-year">Month YYYY</span><span class="badge badge--unit">TBD</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">02</span>
+        <div>
+          <p class="entry-note">One line per item — what happened, with links where they exist.</p>
+          <p class="entry-meta"><span class="entry-year">Month YYYY</span><span class="badge badge--unit">TBD</span></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section grid" id="experience">
+    <h2 class="section-label">Experience</h2>
+    <div class="section-body">
+
+      <div class="row">
+        <span class="row-index">01</span>
+        <div>
+          <p class="entry-title">Jilin University <span class="badge badge--unit" title="Short code reused on publication rows">JLU-1</span></p>
+          <p class="entry-authors">Research Intern — Advisor TBD</p>
+          <p class="entry-note">Topic TBD</p>
+          <p class="entry-meta"><span class="entry-year">Dates TBD</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">02</span>
+        <div>
+          <p class="entry-title">Jilin University <span class="badge badge--unit" title="Short code reused on publication rows">JLU-2</span></p>
+          <p class="entry-authors">Research Intern — Advisor TBD</p>
+          <p class="entry-note">Topic TBD</p>
+          <p class="entry-meta"><span class="entry-year">Dates TBD</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">03</span>
+        <div>
+          <p class="entry-title">Shanghai Jiao Tong University <span class="badge badge--unit" title="Short code reused on publication rows">SJTU</span></p>
+          <p class="entry-authors">Research Intern — Advisor TBD</p>
+          <p class="entry-note">Topic TBD</p>
+          <p class="entry-meta"><span class="entry-year">Dates TBD</span></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section grid" id="education">
+    <h2 class="section-label">Education</h2>
+    <div class="section-body">
+      <div class="row">
+        <span class="row-index">01</span>
+        <div>
+          <p class="entry-title">Jilin University, College of Artificial Intelligence</p>
+          <p class="entry-authors">B.Eng. in Artificial Intelligence</p>
+          <p class="entry-meta"><span class="entry-year">2024 – Present</span></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section grid" id="publications">
+    <h2 class="section-label">Publications</h2>
+    <div class="section-body">
+
+      <div class="row">
+        <span class="row-index">01</span>
+        <div>
+          <p class="entry-title">Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding</p>
+          <p class="entry-authors">Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*</p>
+          <p class="entry-meta">
+            <span class="entry-venue">AAAI 2026</span>
+            <span class="badge badge--accepted">Poster</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">02</span>
+        <div>
+          <p class="entry-title">Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization</p>
+          <p class="entry-authors">Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*</p>
+          <p class="entry-meta">
+            <span class="entry-venue">AISTATS 2026</span>
+            <span class="badge badge--accepted">Poster</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">03</span>
+        <div>
+          <p class="entry-title">SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique</p>
+          <p class="entry-authors">Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu</strong>, Wanli Shi, Zhaogeng Liu, Bin Gu*</p>
+          <p class="entry-meta">
+            <span class="entry-venue">CVPR 2026</span>
+            <span class="badge badge--review">Under review</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">04</span>
+        <div>
+          <p class="entry-title">Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization</p>
+          <p class="entry-authors">Wanli Shi, Teng Hou, <strong>Dongxu Liu</strong>, Bin Gu*</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICML 2026</span>
+            <span class="badge badge--review">Under review</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">05</span>
+        <div>
+          <p class="entry-title">Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective</p>
+          <p class="entry-authors">Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu</strong>, Wanli Shi, Bin Gu*</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICML 2026</span>
+            <span class="badge badge--review">Under review</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">06</span>
+        <div>
+          <p class="entry-title">AdaScale: Diagnosing and Adapting Multi-Scale Fusion for Training-Free Zero-Shot Recognition</p>
+          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICASSP 2027</span>
+            <span class="badge badge--unit">Draft — verify</span>
+            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">07</span>
+        <div>
+          <p class="entry-title">Context-Dependent Precision Utility for Mixed-Precision Object Detection</p>
+          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICASSP 2027</span>
+            <span class="badge badge--unit">Draft — verify</span>
+            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">08</span>
+        <div>
+          <p class="entry-title">RC-ZOQO: Certifying Resolution Limits in Quantized Zeroth-Order Optimization</p>
+          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICASSP 2027</span>
+            <span class="badge badge--unit">Draft — verify</span>
+            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">09</span>
+        <div>
+          <p class="entry-title">Certified Zeroth-Order Exact Penalization for Black-Box Sparsity-Constrained Optimization</p>
+          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICASSP 2027</span>
+            <span class="badge badge--unit">Draft — verify</span>
+            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section grid" id="projects">
+    <h2 class="section-label">Projects</h2>
+    <div class="section-body">
+
+      <div class="row">
+        <span class="row-index">01</span>
+        <div>
+          <p class="entry-title">Neuromorphic LLM Deployment</p>
+          <p class="entry-note">Deploying spiking large language models on neuromorphic hardware, focusing on model spiking, operator mapping, on-chip inference, and algorithm–hardware co-design.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">02</span>
+        <div>
+          <p class="entry-title">Machine Learning from Scratch</p>
+          <p class="entry-note">Implementations of classical machine learning algorithms from scratch, including k-NN, Naive Bayes, Decision Tree, Logistic Regression, SVM, Random Forest, AdaBoost, k-means, PCA, SVD, Apriori, and FP-growth.</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">03</span>
+        <div>
+          <p class="entry-title">Spiking Neural Networks on Event-Camera Datasets</p>
+          <p class="entry-note">SNN projects on event-camera data, together with evolutionary algorithms for TSP and C/C++ game development practice.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section grid" id="awards">
+    <h2 class="section-label">Selected Awards</h2>
+    <div class="section-body">
+
+      <div class="row">
+        <span class="row-index">01</span>
+        <div>
+          <p class="entry-title">Jilin University First-Class Scholarship</p>
+          <p class="entry-meta"><span class="entry-year">2025</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">02</span>
+        <div>
+          <p class="entry-title">Jilin University Excellent Student</p>
+          <p class="entry-meta"><span class="entry-year">2025</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">03</span>
+        <div>
+          <p class="entry-title">Second Prize, Jilin Province College Students Mathematics Competition</p>
+          <p class="entry-meta"><span class="entry-year">2025</span></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section grid" id="services">
+    <h2 class="section-label">Services</h2>
+    <div class="section-body">
+
+      <div class="row">
+        <span class="row-index">01</span>
+        <div>
+          <p class="entry-title">Reviewer, International Conference on Learning Representations</p>
+          <p class="entry-meta"><a class="entry-year" href="https://iclr.cc/">ICLR 2027</a></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">02</span>
+        <div>
+          <p class="entry-title">Reviewer, IEEE International Conference on Acoustics, Speech and Signal Processing</p>
+          <p class="entry-meta"><a class="entry-year" href="https://ieeeicassp.org/">ICASSP 2027</a></p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section grid" id="skills">
+    <h2 class="section-label">Skills</h2>
+    <div class="section-body">
+      <ul class="skills">
+        <li>Python</li>
+        <li>PyTorch</li>
+        <li>C</li>
+        <li>C++</li>
+        <li>Linux</li>
+        <li>Git</li>
+        <li>tmux</li>
+      </ul>
+    </div>
+  </section>
+
+</main>
+
+<footer class="shell">
+  <div class="footer">
+    <span>© 2026 Dongxu Liu</span>
+    <a href="https://github.com/ldx825/liudongxu825.github.io">Source</a>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  var button = document.getElementById('theme-toggle');
+  var SUN = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.6v2.2M12 19.2v2.2M2.6 12h2.2M19.2 12h2.2M5.35 5.35l1.56 1.56M17.09 17.09l1.56 1.56M18.65 5.35l-1.56 1.56M6.91 17.09l-1.56 1.56"/></svg>';
+  var MOON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79Z"/></svg>';
+
+  function render() {
+    var dark = root.getAttribute('data-theme') === 'dark';
+    button.innerHTML = dark ? SUN : MOON;
+    button.setAttribute('aria-label', dark ? 'Switch to light theme' : 'Switch to dark theme');
+    button.setAttribute('aria-pressed', String(dark));
+  }
+
+  button.addEventListener('click', function () {
+    var next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    root.setAttribute('data-theme', next);
+    try { localStorage.setItem('theme', next); } catch (e) {}
+    render();
+  });
+
+  render();
+})();
+</script>
+
+<script>
+(function () {
+  var links = Array.prototype.slice.call(document.querySelectorAll('.masthead__nav a'));
+  var sections = links.map(function (link) {
+    return document.querySelector(link.getAttribute('href'));
+  }).filter(Boolean);
+  if (!sections.length) { return; }
+
+  var line = 0;
+
+  function measure() {
+    line = window.innerHeight * 0.35;
+  }
+
+  function update() {
+    var current = sections[0];
+    for (var i = 0; i < sections.length; i++) {
+      if (sections[i].getBoundingClientRect().top <= line) { current = sections[i]; }
+    }
+    for (var j = 0; j < links.length; j++) {
+      if (links[j].getAttribute('href') === '#' + current.id) {
+        links[j].setAttribute('aria-current', 'true');
+      } else {
+        links[j].removeAttribute('aria-current');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', function () { measure(); update(); });
+  window.addEventListener('load', function () { measure(); update(); });
+  measure();
+  update();
+})();
+</script>
+</body>
+</html>

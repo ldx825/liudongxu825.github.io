@@ -57,3 +57,6 @@ exclude:
   - LICENSE
   - minimal-light.gemspec
   - html_source_file/
+  - _archive/
+  - docs/
+  - page-story-dongxu-liu.md
