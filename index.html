@@ -333,20 +333,45 @@
   }
   .badge--accepted { border-color: var(--status-accepted); color: var(--status-accepted); }
   .badge--review { border-style: dashed; }
-  .badge--unit { border-style: dashed; color: var(--text-faint); }
+  .badge--tag {
+    color: var(--text-muted);
+    text-transform: none;
+    transition: color 180ms ease, border-color 180ms ease;
+  }
+  a.badge--tag:hover, a.badge--tag:focus-visible {
+    color: var(--accent);
+    border-color: var(--accent);
+    text-decoration: none;
+  }
 
-  /* Draft-preview banner: remove together with the draft rows */
-  .draft-banner {
-    background: var(--accent-quiet);
-    border-bottom: 1px solid var(--rule);
+  .entry-role {
     font-family: var(--font-mono);
     font-size: 0.6875rem;
     font-weight: 500;
-    letter-spacing: 0.04em;
-    color: var(--text-muted);
-    padding-block: var(--space-1);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--text-faint);
   }
-  .draft-banner strong { color: var(--accent); font-weight: 500; }
+  .entry-desc {
+    margin: 0 0 var(--space-1);
+    font-size: 0.9375rem;
+    color: var(--text-muted);
+  }
+  .pub-links { display: inline-flex; flex-wrap: wrap; gap: var(--space-2); }
+  .pub-links a {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .pub-caption {
+    font-family: var(--font-sans);
+    font-size: 0.8125rem;
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin: 0 0 var(--space-4);
+  }
 
   .skills {
     list-style: none;
@@ -421,10 +446,6 @@
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<div class="draft-banner">
-  <div class="shell"><strong>Draft preview.</strong> Rows tagged <span class="badge badge--unit">TBD</span> are unverified placeholders — confirm or delete before publishing.</div>
-</div>
-
 <header class="shell">
   <div class="masthead">
     <span class="masthead__name">Dongxu Liu</span>
@@ -456,7 +477,8 @@
   <section class="section grid" id="about">
     <h2 class="section-label">About</h2>
     <div class="section-body">
-      <p class="lede">I am currently a second-year undergraduate student in <a href="https://sai.jlu.edu.cn/">the College of Artificial Intelligence at Jilin University</a>, majoring in Artificial Intelligence.</p>
+      <p class="lede">I am a third-year undergraduate in <a href="https://sai.jlu.edu.cn/">the College of Artificial Intelligence at Jilin University</a>, majoring in Artificial Intelligence.</p>
+      <p class="lede">My work spans optimization theory, spiking neural networks, and model compression, and more recently embodied intelligence and LLM agents. My aim is to work on problems that matter in practice rather than on metrics alone.</p>
       <ul class="link-list">
         <li>
           <a href="mailto:liudx9924@mails.jlu.edu.cn">
@@ -490,10 +512,11 @@
     <h2 class="section-label">Research Interests</h2>
     <div class="section-body">
       <ul class="interest-list">
-        <li>LLM</li>
-        <li>MLLM</li>
         <li>Optimization</li>
-        <li>Spiking Neural Network</li>
+        <li>Spiking Neural Networks</li>
+        <li>Model Compression</li>
+        <li>LLM Agents</li>
+        <li>Embodied AI</li>
       </ul>
     </div>
   </section>
@@ -505,16 +528,32 @@
       <div class="row">
         <span class="row-index">01</span>
         <div>
-          <p class="entry-note">One line per item — what happened, with links where they exist.</p>
-          <p class="entry-meta"><span class="entry-year">Month YYYY</span><span class="badge badge--unit">TBD</span></p>
+          <p class="entry-note">Started a research internship with Prof. <a href="https://yuanwu3.github.io/">Yuan Wu</a> at Jilin University, working on LLM agents and recursive self-improvement.</p>
+          <p class="entry-meta"><span class="entry-year">Jul 2026</span></p>
         </div>
       </div>
 
       <div class="row">
         <span class="row-index">02</span>
         <div>
-          <p class="entry-note">One line per item — what happened, with links where they exist.</p>
-          <p class="entry-meta"><span class="entry-year">Month YYYY</span><span class="badge badge--unit">TBD</span></p>
+          <p class="entry-note">Joined AutoLab / Awaken Robotics at Shanghai Jiao Tong University as a research intern with Prof. <a href="https://zhipengzhang.cn/">Zhipeng Zhang</a>, working on VLA and World Action Models.</p>
+          <p class="entry-meta"><span class="entry-year">Mar 2026</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">03</span>
+        <div>
+          <p class="entry-note">Started a research internship at the College of Artificial Intelligence, Jilin University, with Profs. Bin Gu, Wanli Shi, Zhaogeng Liu and Tianxing Man, on optimization theory and spiking neural networks.</p>
+          <p class="entry-meta"><span class="entry-year">Jan 2025</span></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">04</span>
+        <div>
+          <p class="entry-note">Began undergraduate studies in the College of Artificial Intelligence at Jilin University.</p>
+          <p class="entry-meta"><span class="entry-year">Aug 2024</span></p>
         </div>
       </div>
 
@@ -525,33 +564,42 @@
     <h2 class="section-label">Experience</h2>
     <div class="section-body">
 
-      <div class="row">
+      <div class="row" id="exp-jlu-ai">
         <span class="row-index">01</span>
         <div>
-          <p class="entry-title">Jilin University <span class="badge badge--unit" title="Short code reused on publication rows">JLU-1</span></p>
-          <p class="entry-authors">Research Intern — Advisor TBD</p>
-          <p class="entry-note">Topic TBD</p>
-          <p class="entry-meta"><span class="entry-year">Dates TBD</span></p>
+          <p class="entry-title">Jilin University, College of Artificial Intelligence <span class="badge badge--tag">JLU-AI</span></p>
+          <p class="entry-authors">Research Intern — with <a href="https://sai.jlu.edu.cn/info/1094/4630.htm">Bin Gu</a>, <a href="https://sai.jlu.edu.cn/info/1094/5101.htm">Wanli Shi</a>, <a href="https://sai.jlu.edu.cn/info/1094/5355.htm">Zhaogeng Liu</a> and <a href="https://ccs.imu.edu.cn/info/1023/2693.htm">Tianxing Man</a></p>
+          <p class="entry-desc">Optimization theory, spiking neural networks, model compression and acceleration.</p>
+          <p class="entry-meta"><span class="entry-year">Jan 2025 – Mar 2026</span></p>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="exp-sjtu-ai">
         <span class="row-index">02</span>
         <div>
-          <p class="entry-title">Jilin University <span class="badge badge--unit" title="Short code reused on publication rows">JLU-2</span></p>
-          <p class="entry-authors">Research Intern — Advisor TBD</p>
-          <p class="entry-note">Topic TBD</p>
-          <p class="entry-meta"><span class="entry-year">Dates TBD</span></p>
+          <p class="entry-title">Shanghai Jiao Tong University, AutoLab / Awaken Robotics <span class="badge badge--tag">SJTU-AI</span></p>
+          <p class="entry-authors">Research Intern — with <a href="https://zhipengzhang.cn/">Zhipeng Zhang</a></p>
+          <p class="entry-desc">VLA, World Action Models (WAM), and embodied intelligence.</p>
+          <p class="entry-meta"><span class="entry-year">Mar 2026 – Present</span></p>
         </div>
       </div>
 
-      <div class="row">
+      <div class="row" id="exp-jlu-agent">
         <span class="row-index">03</span>
         <div>
-          <p class="entry-title">Shanghai Jiao Tong University <span class="badge badge--unit" title="Short code reused on publication rows">SJTU</span></p>
-          <p class="entry-authors">Research Intern — Advisor TBD</p>
-          <p class="entry-note">Topic TBD</p>
-          <p class="entry-meta"><span class="entry-year">Dates TBD</span></p>
+          <p class="entry-title">Jilin University, College of Artificial Intelligence <span class="badge badge--tag">JLU-Agent</span></p>
+          <p class="entry-authors">Research Intern — with <a href="https://yuanwu3.github.io/">Yuan Wu</a></p>
+          <p class="entry-desc">LLM agents and recursive self-improvement (RSI).</p>
+          <p class="entry-meta"><span class="entry-year">Jul 2026 – Oct 2026</span></p>
+        </div>
+      </div>
+
+      <div class="row" id="exp-solo">
+        <span class="row-index">04</span>
+        <div>
+          <p class="entry-title">Independent Research <span class="badge badge--tag">SOLO</span></p>
+          <p class="entry-desc">Self-directed work on black-box optimization and visual model compression and acceleration.</p>
+          <p class="entry-meta"><span class="entry-year">No supervising lab</span></p>
         </div>
       </div>
 
@@ -566,24 +614,33 @@
         <div>
           <p class="entry-title">Jilin University, College of Artificial Intelligence</p>
           <p class="entry-authors">B.Eng. in Artificial Intelligence</p>
-          <p class="entry-meta"><span class="entry-year">2024 – Present</span></p>
+          <p class="entry-desc">Weighted average 90/100, GPA 3.74/4, ranked 10/73 (top 13%). First-Class Scholarship and Outstanding Student of Jilin University.</p>
+          <p class="entry-desc">Selected courses: Deep Learning 97.6, Machine Learning and Pattern Recognition 94.6, Programming Fundamentals 94.8, Calculus 95.1, Linear Algebra 94.3.</p>
+          <p class="entry-desc">CET-4 556, CET-6 449.</p>
+          <p class="entry-meta"><span class="entry-year">Aug 2024 – Present</span></p>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="section grid" id="publications">
+    <section class="section grid" id="publications">
     <h2 class="section-label">Publications</h2>
     <div class="section-body">
+
+      <p class="pub-caption">Internship tags link to the corresponding entry in <a href="#experience">Experience</a>: JLU-AI (optimisation and SNN), SJTU-AI (embodied AI), JLU-Agent (LLM agents), and SOLO (independent work).</p>
 
       <div class="row">
         <span class="row-index">01</span>
         <div>
           <p class="entry-title">Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding</p>
           <p class="entry-authors">Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*</p>
+          <p class="entry-desc">Combines variance reduction with sparse projection and proves linear convergence for compositional stochastic hard thresholding.</p>
           <p class="entry-meta">
             <span class="entry-venue">AAAI 2026</span>
-            <span class="badge badge--accepted">Poster</span>
+            <span class="entry-role">Second author</span>
+            <span class="badge badge--accepted">Published</span>
+            <a class="badge badge--tag" href="#exp-jlu-ai" title="Jilin University, College of Artificial Intelligence — Research Intern (Jan 2025 – Mar 2026)">JLU-AI</a>
+            <span class="pub-links"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/39856">Paper</a></span>
           </p>
         </div>
       </div>
@@ -593,9 +650,13 @@
         <div>
           <p class="entry-title">Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization</p>
           <p class="entry-authors">Wenkang Wang, <strong>Dongxu Liu</strong>, Bin Gu*</p>
+          <p class="entry-desc">Extends sparse AUC optimization to the black-box setting with ZO-SCHT and analyses its convergence.</p>
           <p class="entry-meta">
             <span class="entry-venue">AISTATS 2026</span>
-            <span class="badge badge--accepted">Poster</span>
+            <span class="entry-role">Second author</span>
+            <span class="badge badge--accepted">Published</span>
+            <a class="badge badge--tag" href="#exp-jlu-ai" title="Jilin University, College of Artificial Intelligence — Research Intern (Jan 2025 – Mar 2026)">JLU-AI</a>
+            <span class="pub-links"><a href="https://proceedings.mlr.press/v300/wang26g.html">Paper</a></span>
           </p>
         </div>
       </div>
@@ -605,9 +666,13 @@
         <div>
           <p class="entry-title">SpikingCLIP: Direct ANN-to-SNN Conversion of CLIP via Channel-to-Token Outlier Migration Technique</p>
           <p class="entry-authors">Tianshuo Chen, Hanyuan Zheng, Haozhen Zhang, <strong>Dongxu Liu</strong>, Wanli Shi, Zhaogeng Liu, Bin Gu*</p>
+          <p class="entry-desc">Converts CLIP into a spiking network through channel-to-token outlier migration and spike encoding.</p>
           <p class="entry-meta">
             <span class="entry-venue">CVPR 2026</span>
-            <span class="badge badge--review">Under review</span>
+            <span class="entry-role">Fourth author</span>
+            <span class="badge badge--review">Pending</span>
+            <a class="badge badge--tag" href="#exp-jlu-ai" title="Jilin University, College of Artificial Intelligence — Research Intern (Jan 2025 – Mar 2026)">JLU-AI</a>
+            <span class="pub-links"><a href="https://openreview.net/forum?id=L1QL5uNDAn">Paper</a><a href="https://github.com/JLU-Solar/CVPR-CLIP">Code</a></span>
           </p>
         </div>
       </div>
@@ -616,10 +681,13 @@
         <span class="row-index">04</span>
         <div>
           <p class="entry-title">Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization</p>
-          <p class="entry-authors">Wanli Shi, Teng Hou, <strong>Dongxu Liu</strong>, Bin Gu*</p>
+          <p class="entry-desc">Combines zeroth- and first-order gradients for nonsmooth minimax problems, with function-query complexity analysis.</p>
           <p class="entry-meta">
-            <span class="entry-venue">ICML 2026</span>
+            <span class="entry-venue">ICLR 2027</span>
+            <span class="entry-role">Third author</span>
             <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-jlu-ai" title="Jilin University, College of Artificial Intelligence — Research Intern (Jan 2025 – Mar 2026)">JLU-AI</a>
+            <span class="pub-links"><a href="https://openreview.net/forum?id=5S23ZjJMXd">Paper</a><a href="https://github.com/ldx825/ZOFOGDA_Nips26">Code</a></span>
           </p>
         </div>
       </div>
@@ -629,9 +697,13 @@
         <div>
           <p class="entry-title">Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective</p>
           <p class="entry-authors">Wenkang Wang, Jia Zhang, Zelin Wei, <strong>Dongxu Liu</strong>, Wanli Shi, Bin Gu*</p>
+          <p class="entry-desc">Presents ZOE-Grad, a zeroth-order expectation view that unifies quantized surrogate gradients and improves optimisation stability.</p>
           <p class="entry-meta">
-            <span class="entry-venue">ICML 2026</span>
-            <span class="badge badge--review">Under review</span>
+            <span class="entry-venue">NeurIPS 2026</span>
+            <span class="entry-role">Co-first author</span>
+            <span class="badge badge--accepted">Published</span>
+            <a class="badge badge--tag" href="#exp-jlu-ai" title="Jilin University, College of Artificial Intelligence — Research Intern (Jan 2025 – Mar 2026)">JLU-AI</a>
+            <span class="pub-links"><a href="https://openreview.net/forum?id=0ZZ3tyBGyc">Paper</a><a href="https://github.com/wangwk699/ZOE_Grad">Code</a></span>
           </p>
         </div>
       </div>
@@ -639,12 +711,13 @@
       <div class="row">
         <span class="row-index">06</span>
         <div>
-          <p class="entry-title">AdaScale: Diagnosing and Adapting Multi-Scale Fusion for Training-Free Zero-Shot Recognition</p>
-          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-title">FG-DMARS: Fine-Grained Multi-Agent Review for Cost-Efficient and Stable LLM Reasoning</p>
+          <p class="entry-desc">A fine-grained multi-agent review framework that improves the stability and performance of LLM reasoning through inter-agent review and dynamic re-checking.</p>
+          <p class="entry-desc">Supervised the final-year project of a senior student in the college.</p>
           <p class="entry-meta">
-            <span class="entry-venue">ICASSP 2027</span>
-            <span class="badge badge--unit">Draft — verify</span>
-            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+            <span class="entry-role">Corresponding author</span>
+            <span class="badge badge--review">Supervised</span>
+            <a class="badge badge--tag" href="#exp-jlu-ai" title="Jilin University, College of Artificial Intelligence — Research Intern (Jan 2025 – Mar 2026)">JLU-AI</a>
           </p>
         </div>
       </div>
@@ -652,12 +725,14 @@
       <div class="row">
         <span class="row-index">07</span>
         <div>
-          <p class="entry-title">Context-Dependent Precision Utility for Mixed-Precision Object Detection</p>
-          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-title">WAM-Adapter: Efficiently Adapting Video-DiT World Representations to Robot Actions</p>
+          <p class="entry-desc">Freezes a Video-DiT backbone and adds lightweight LoRA adaptation with a single-pass fusion of current and future world representations, transferring video world models to robot action generation.</p>
           <p class="entry-meta">
-            <span class="entry-venue">ICASSP 2027</span>
-            <span class="badge badge--unit">Draft — verify</span>
-            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+            <span class="entry-venue">ICLR 2027</span>
+            <span class="entry-role">First author</span>
+            <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-sjtu-ai" title="Shanghai Jiao Tong University, AutoLab / Awaken Robotics — Research Intern (Mar 2026 – Present)">SJTU-AI</a>
+            <span class="pub-links"><a href="https://github.com/ldx825/WAM-Adapter">Code</a><a href="https://ldx825.github.io/WAM-Adapter-Homepage/">Project</a></span>
           </p>
         </div>
       </div>
@@ -665,12 +740,14 @@
       <div class="row">
         <span class="row-index">08</span>
         <div>
-          <p class="entry-title">RC-ZOQO: Certifying Resolution Limits in Quantized Zeroth-Order Optimization</p>
-          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-title">AutoPrune-Plus: Is the Most Attended View Deserve the Most Tokens?</p>
+          <p class="entry-desc">Studies visual token importance across multiple views in VLA models and adaptive pruning.</p>
           <p class="entry-meta">
-            <span class="entry-venue">ICASSP 2027</span>
-            <span class="badge badge--unit">Draft — verify</span>
-            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+            <span class="entry-venue">TPAMI</span>
+            <span class="entry-role">Co-first author</span>
+            <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-sjtu-ai" title="Shanghai Jiao Tong University, AutoLab / Awaken Robotics — Research Intern (Mar 2026 – Present)">SJTU-AI</a>
+            <span class="pub-links"><a href="https://cn.overleaf.com/read/dymsxfncryzt">Paper</a><a href="https://github.com/ldx825/vla_vlm-pruning-method">Code</a></span>
           </p>
         </div>
       </div>
@@ -678,12 +755,74 @@
       <div class="row">
         <span class="row-index">09</span>
         <div>
-          <p class="entry-title">Certified Zeroth-Order Exact Penalization for Black-Box Sparsity-Constrained Optimization</p>
-          <p class="entry-authors">Authors TBD</p>
+          <p class="entry-title">TaskMatch: Learning Task-Aware Relevance Beyond Semantic Similarity for Agent Harnesses</p>
+          <p class="entry-desc">Replaces fixed semantic cosine-similarity ranking with a lightweight task-relevance model, improving skill and memory retrieval for agents.</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICLR 2027</span>
+            <span class="entry-role">First author</span>
+            <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-jlu-agent" title="Jilin University, College of Artificial Intelligence — Research Intern (Jul 2026 – Oct 2026)">JLU-Agent</a>
+            <span class="pub-links"><a href="https://www.preprints.org/manuscript/202610.0778">Paper</a><a href="https://github.com/ldx825/learned-relevance-scorer-agent-retrieval">Code</a></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">10</span>
+        <div>
+          <p class="entry-title">RC-ZOQO: Certifying Resolution Limits in Quantized Zeroth-Order Optimization</p>
+          <p class="entry-desc">Studies the resolution limits of quantized zeroth-order optimization, establishing verifiable theoretical bounds with numerical tests.</p>
           <p class="entry-meta">
             <span class="entry-venue">ICASSP 2027</span>
-            <span class="badge badge--unit">Draft — verify</span>
-            <span class="badge badge--unit" title="Internship attribution to be confirmed">TBD</span>
+            <span class="entry-role">First author</span>
+            <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-solo" title="Independent research — no supervising lab">SOLO</a>
+            <span class="pub-links"><a href="https://github.com/ldx825/RC-ZOQO_ICASSP-2027/blob/main/RC_ZOQO_ICASSP2027_V06/main.pdf">Paper</a><a href="https://github.com/ldx825/RC-ZOQO_ICASSP-2027">Code</a></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">11</span>
+        <div>
+          <p class="entry-title">AdaScale: Diagnosing and Adapting Multi-Scale Fusion for Training-Free Zero-Shot Recognition</p>
+          <p class="entry-desc">Diagnoses where multi-scale fusion helps and where it does not, then adapts scale selection without training.</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICASSP 2027</span>
+            <span class="entry-role">First author</span>
+            <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-solo" title="Independent research — no supervising lab">SOLO</a>
+            <span class="pub-links"><a href="https://github.com/ldx825/AdaScale_ICASSP-2027/blob/main/paper/main.pdf">Paper</a><a href="https://github.com/ldx825/AdaScale_ICASSP-2027">Code</a></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">12</span>
+        <div>
+          <p class="entry-title">Context-Dependent Precision Utility for Mixed-Precision Object Detection</p>
+          <p class="entry-desc">Optimises mixed-precision allocation for object detection through conditional marginal-utility estimation and budget-neutral precision swaps.</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICASSP 2027</span>
+            <span class="entry-role">First author</span>
+            <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-solo" title="Independent research — no supervising lab">SOLO</a>
+            <span class="pub-links"><a href="https://github.com/ldx825/Mixed-Precision-Object-Detection_ICASSP-2027/blob/main/paper/main.pdf">Paper</a><a href="https://github.com/ldx825/Mixed-Precision-Object-Detection_ICASSP-2027">Code</a></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <span class="row-index">13</span>
+        <div>
+          <p class="entry-title">Certified Zeroth-Order Exact Penalization for Black-Box Sparsity-Constrained Optimization</p>
+          <p class="entry-desc">Proposes a zeroth-order exact penalty method for black-box sparsity-constrained optimization, with theoretical guarantees and query-efficiency analysis.</p>
+          <p class="entry-meta">
+            <span class="entry-venue">ICASSP 2027</span>
+            <span class="entry-role">First author</span>
+            <span class="badge badge--review">Under review</span>
+            <a class="badge badge--tag" href="#exp-solo" title="Independent research — no supervising lab">SOLO</a>
+            <span class="pub-links"><a href="https://github.com/ldx825/ZO-IDEP_ICASSP-2027/blob/main/ZO_IDEP_ICASSP2027/main.pdf">Paper</a><a href="https://github.com/ldx825/ZO-IDEP_ICASSP-2027">Code</a></span>
           </p>
         </div>
       </div>
@@ -698,8 +837,11 @@
       <div class="row">
         <span class="row-index">01</span>
         <div>
-          <p class="entry-title">Neuromorphic LLM Deployment</p>
-          <p class="entry-note">Deploying spiking large language models on neuromorphic hardware, focusing on model spiking, operator mapping, on-chip inference, and algorithm–hardware co-design.</p>
+          <p class="entry-title">Spiking LLM Deployment on Neuromorphic Hardware (Lynxi KA200)</p>
+          <p class="entry-desc">Core contributor. Spiking large language models, mapping operators onto the chip, on-device inference, and hardware/software co-debugging. Under the JLU-AI internship.</p>
+          <p class="entry-meta">
+            <span class="pub-links"><a href="https://app.notion.com/p/22464f205f65808d9657c220cf599551?source=copy_link">Project</a><a href="https://github.com/JLU-Solar/snn-chat-demo">Code</a></span>
+          </p>
         </div>
       </div>
 
@@ -707,7 +849,7 @@
         <span class="row-index">02</span>
         <div>
           <p class="entry-title">Machine Learning from Scratch</p>
-          <p class="entry-note">Implementations of classical machine learning algorithms from scratch, including k-NN, Naive Bayes, Decision Tree, Logistic Regression, SVM, Random Forest, AdaBoost, k-means, PCA, SVD, Apriori, and FP-growth.</p>
+          <p class="entry-desc">Implementations of classical machine learning algorithms from scratch, including k-NN, Naive Bayes, Decision Tree, Logistic Regression, SVM, Random Forest, AdaBoost, k-means, PCA, SVD, Apriori, and FP-growth.</p>
         </div>
       </div>
 
@@ -715,7 +857,7 @@
         <span class="row-index">03</span>
         <div>
           <p class="entry-title">Spiking Neural Networks on Event-Camera Datasets</p>
-          <p class="entry-note">SNN projects on event-camera data, together with evolutionary algorithms for TSP and C/C++ game development practice.</p>
+          <p class="entry-desc">SNN projects on event-camera data, together with evolutionary algorithms for TSP and C/C++ game development practice.</p>
         </div>
       </div>
 
@@ -737,7 +879,7 @@
       <div class="row">
         <span class="row-index">02</span>
         <div>
-          <p class="entry-title">Jilin University Excellent Student</p>
+          <p class="entry-title">Jilin University Outstanding Student</p>
           <p class="entry-meta"><span class="entry-year">2025</span></p>
         </div>
       </div>
@@ -745,7 +887,7 @@
       <div class="row">
         <span class="row-index">03</span>
         <div>
-          <p class="entry-title">Second Prize, Jilin Province College Students Mathematics Competition</p>
+          <p class="entry-title">National College Students Mathematics Competition, Provincial Second Prize</p>
           <p class="entry-meta"><span class="entry-year">2025</span></p>
         </div>
       </div>
