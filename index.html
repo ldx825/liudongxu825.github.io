@@ -37,6 +37,7 @@
     --accent-quiet: #EEF1FE;
     --status-accepted: #12704A;
     --focus: #1E40E0;
+    --veil: rgba(250, 250, 249, 0.86);
     --font-sans: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
     --font-serif: 'Source Serif 4', Georgia, 'Times New Roman', serif;
     --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -61,6 +62,7 @@
     --accent-quiet: #161B33;
     --status-accepted: #4FD29B;
     --focus: #8AA4FF;
+    --veil: rgba(12, 13, 16, 0.88);
   }
 
   *, *::before, *::after { box-sizing: border-box; }
@@ -140,8 +142,8 @@
   }
 
   #theme-toggle {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     display: grid;
     place-items: center;
     flex: none;
@@ -311,6 +313,23 @@
   }
   .entry-authors strong { color: var(--text); font-weight: 600; }
   .entry-note { margin: 0; font-size: 0.9375rem; }
+  .entry-note a {
+    color: inherit;
+    text-decoration: underline;
+    text-decoration-color: var(--rule-strong);
+    text-underline-offset: 3px;
+  }
+  .entry-note a:hover { color: var(--accent); text-decoration-color: currentColor; }
+  .entry-small { margin: 3px 0 0; font-size: 0.875rem; line-height: 1.5; color: var(--text-muted); }
+  .entry-small a { color: var(--text-muted); text-decoration: underline; text-decoration-color: var(--rule-strong); text-underline-offset: 2px; }
+  .entry-small a:hover { color: var(--accent); }
+  .entry-when {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
   .entry-meta {
     display: flex;
     flex-wrap: wrap;
@@ -480,6 +499,65 @@
   }
   .fold[open] > summary::before { transform: rotate(45deg); }
   .fold-body { padding-top: var(--space-2); }
+  .row-list .row:first-of-type { padding-top: 0; }
+  .row-list .row:last-of-type { padding-bottom: 2px; }
+  .row[id] { scroll-margin-top: var(--space-4); }
+
+  /* ---------- Backdrop ---------- */
+
+  html { background: var(--bg); }
+  body { background: transparent; }
+
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    background-image: var(--bg-image, none);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0;
+    transition: opacity 500ms ease;
+  }
+  body.bg-ready::before { opacity: 1; }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--veil);
+    pointer-events: none;
+    transition: background-color 300ms ease;
+  }
+  body.bg-off::before { opacity: 0; }
+  body.bg-off::after { background: var(--bg); }
+
+  .view-tools { display: flex; align-items: center; gap: 5px; flex: none; }
+  .view-tools button {
+    width: 30px;
+    height: 30px;
+    display: grid;
+    place-items: center;
+    background: transparent;
+    border: 1px solid var(--rule-strong);
+    border-radius: 50%;
+    color: var(--text-muted);
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 1;
+    transition: color 180ms ease, border-color 180ms ease, opacity 180ms ease;
+  }
+  .view-tools button:hover { color: var(--accent); border-color: var(--accent); }
+  .view-tools button[aria-pressed="false"] { opacity: 0.45; }
+  .view-tools svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+  @media (max-width: 640px) {
+    .view-tools { gap: 4px; }
+    .view-tools button,
+    #theme-toggle { width: 28px; height: 28px; }
+  }
 
   /* ---------- Footer ---------- */
 
@@ -566,7 +644,18 @@
       <a href="#awards">Awards</a>
       <a href="#services">Services</a>
     </nav>
-    <button id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"></button>
+    <div class="view-tools">
+      <button id="bg-prev" type="button" aria-label="Previous background image" title="Previous background">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+      </button>
+      <button id="bg-next" type="button" aria-label="Next background image" title="Next background">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>
+      </button>
+      <button id="bg-toggle" type="button" aria-label="Hide background image" aria-pressed="true" title="Toggle background">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="14" rx="1.5"/><path d="M3.5 15.5l4.5-4.5 3.5 3.5 3-3 6 6"/><circle cx="9" cy="9.5" r="1.2"/></svg>
+      </button>
+      <button id="theme-toggle" type="button" aria-label="Switch to dark theme" aria-pressed="false"></button>
+    </div>
   </div>
 
   <div class="hero">
@@ -633,83 +722,83 @@
       <section class="section grid" id="news">
     <h2 class="section-label">News</h2>
     <div class="section-body">
-
-      <div class="row row--compact">
-        <span class="row-index">01</span>
-        <p class="entry-note">Our paper <a href="https://openreview.net/forum?id=0ZZ3tyBGyc">&ldquo;Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective&rdquo;</a> was accepted.</p>
-        <span class="entry-year">NeurIPS 2026</span>
-      </div>
-
-      <div class="row row--compact">
-        <span class="row-index">02</span>
-        <p class="entry-note">Our paper <a href="https://proceedings.mlr.press/v300/wang26g.html">&ldquo;Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization&rdquo;</a> was accepted.</p>
-        <span class="entry-year">AISTATS 2026</span>
-      </div>
-
-      <div class="row row--compact">
-        <span class="row-index">03</span>
-        <p class="entry-note">Our paper <a href="https://ojs.aaai.org/index.php/AAAI/article/view/39856">&ldquo;Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding&rdquo;</a> was accepted.</p>
-        <span class="entry-year">AAAI 2026</span>
-      </div>
-
-      <div class="row row--compact">
-        <span class="row-index">04</span>
-        <p class="entry-note">Started my research journey at the College of Artificial Intelligence, Jilin University.</p>
-        <span class="entry-year">Jan 2025</span>
-      </div>
-
-      <div class="row row--compact">
-        <span class="row-index">05</span>
-        <p class="entry-note">Began undergraduate studies in Artificial Intelligence at Jilin University.</p>
-        <span class="entry-year">Aug 2024</span>
-      </div>
-
+      <details class="fold" open>
+        <summary>5 updates</summary>
+        <div class="fold-body row-list">
+          <div class="row row--compact">
+            <span class="row-index">01</span>
+            <div>
+              <p class="entry-note"><a href="https://openreview.net/forum?id=0ZZ3tyBGyc">Our paper &ldquo;Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective&rdquo; was accepted</a>.</p>
+              <p class="entry-small">NeurIPS 2026</p>
+            </div>
+            <span class="entry-when">Sep 2026</span>
+          </div>
+          <div class="row row--compact">
+            <span class="row-index">02</span>
+            <div>
+              <p class="entry-note"><a href="https://proceedings.mlr.press/v300/wang26g.html">Our paper &ldquo;Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization&rdquo; was accepted</a>.</p>
+              <p class="entry-small">AISTATS 2026</p>
+            </div>
+            <span class="entry-when">Jan 2026</span>
+          </div>
+          <div class="row row--compact">
+            <span class="row-index">03</span>
+            <div>
+              <p class="entry-note"><a href="https://ojs.aaai.org/index.php/AAAI/article/view/39856">Our paper &ldquo;Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding&rdquo; was accepted</a>.</p>
+              <p class="entry-small">AAAI 2026</p>
+            </div>
+            <span class="entry-when">Nov 2025</span>
+          </div>
+          <div class="row row--compact">
+            <span class="row-index">04</span>
+            <div><p class="entry-note">Started my research journey at the College of Artificial Intelligence, Jilin University.</p></div>
+            <span class="entry-when">Jan 2025</span>
+          </div>
+          <div class="row row--compact">
+            <span class="row-index">05</span>
+            <div><p class="entry-note">Began undergraduate studies in Artificial Intelligence at Jilin University.</p></div>
+            <span class="entry-when">Aug 2024</span>
+          </div>
+        </div>
+      </details>
     </div>
   </section>
 
   <section class="section grid" id="experience">
     <h2 class="section-label">Experience</h2>
     <div class="section-body">
-
-      <div class="row" id="exp-jlu-ai">
-        <span class="row-index">01</span>
-        <div>
-          <p class="entry-title">Jilin University, College of Artificial Intelligence <span class="badge badge--tag">JLU-AI</span></p>
-          <p class="entry-authors">Research Intern — with <a href="https://sai.jlu.edu.cn/info/1094/4630.htm">Bin Gu</a>, <a href="https://sai.jlu.edu.cn/info/1094/5101.htm">Wanli Shi</a>, <a href="https://sai.jlu.edu.cn/info/1094/5355.htm">Zhaogeng Liu</a> and <a href="https://ccs.imu.edu.cn/info/1023/2693.htm">Tianxing Man</a></p>
-          <p class="entry-desc">Optimization theory, spiking neural networks, model compression and acceleration.</p>
-          <p class="entry-meta"><span class="entry-year">Jan 2025 – Mar 2026</span></p>
+      <details class="fold">
+        <summary>3 research positions</summary>
+        <div class="fold-body row-list">
+          <div class="row row--compact" id="exp-jlu-ai">
+            <span class="row-index">01</span>
+            <div>
+              <p class="entry-note"><strong>Jilin University, College of Artificial Intelligence</strong> <span class="badge badge--tag">JLU-AI</span></p>
+              <p class="entry-small">Research Intern &mdash; with <a href="https://sai.jlu.edu.cn/info/1094/4630.htm">Bin Gu</a>, <a href="https://sai.jlu.edu.cn/info/1094/5101.htm">Wanli Shi</a>, <a href="https://sai.jlu.edu.cn/info/1094/5355.htm">Zhaogeng Liu</a> and <a href="https://ccs.imu.edu.cn/info/1023/2693.htm">Tianxing Man</a></p>
+              <p class="entry-small">Optimization theory, spiking neural networks, model compression and acceleration.</p>
+            </div>
+            <span class="entry-when">Jan 2025 &ndash; Mar 2026</span>
+          </div>
+          <div class="row row--compact" id="exp-sjtu-ai">
+            <span class="row-index">02</span>
+            <div>
+              <p class="entry-note"><strong>Shanghai Jiao Tong University, AutoLab / Awaken Robotics</strong> <span class="badge badge--tag">SJTU-AI</span></p>
+              <p class="entry-small">Research Intern &mdash; with <a href="https://zhipengzhang.cn/">Zhipeng Zhang</a></p>
+              <p class="entry-small">VLA, World Action Models (WAM), and embodied intelligence.</p>
+            </div>
+            <span class="entry-when">Mar 2026 &ndash; Present</span>
+          </div>
+          <div class="row row--compact" id="exp-jlu-agent">
+            <span class="row-index">03</span>
+            <div>
+              <p class="entry-note"><strong>Jilin University, College of Artificial Intelligence</strong> <span class="badge badge--tag">JLU-Agent</span></p>
+              <p class="entry-small">Research Intern &mdash; with <a href="https://yuanwu3.github.io/">Yuan Wu</a></p>
+              <p class="entry-small">LLM agents and recursive self-improvement (RSI).</p>
+            </div>
+            <span class="entry-when">Jul 2026 &ndash; Oct 2026</span>
+          </div>
         </div>
-      </div>
-
-      <div class="row" id="exp-sjtu-ai">
-        <span class="row-index">02</span>
-        <div>
-          <p class="entry-title">Shanghai Jiao Tong University, AutoLab / Awaken Robotics <span class="badge badge--tag">SJTU-AI</span></p>
-          <p class="entry-authors">Research Intern — with <a href="https://zhipengzhang.cn/">Zhipeng Zhang</a></p>
-          <p class="entry-desc">VLA, World Action Models (WAM), and embodied intelligence.</p>
-          <p class="entry-meta"><span class="entry-year">Mar 2026 – Present</span></p>
-        </div>
-      </div>
-
-      <div class="row" id="exp-jlu-agent">
-        <span class="row-index">03</span>
-        <div>
-          <p class="entry-title">Jilin University, College of Artificial Intelligence <span class="badge badge--tag">JLU-Agent</span></p>
-          <p class="entry-authors">Research Intern — with <a href="https://yuanwu3.github.io/">Yuan Wu</a></p>
-          <p class="entry-desc">LLM agents and recursive self-improvement (RSI).</p>
-          <p class="entry-meta"><span class="entry-year">Jul 2026 – Oct 2026</span></p>
-        </div>
-      </div>
-
-      <div class="row" id="exp-solo">
-        <span class="row-index">04</span>
-        <div>
-          <p class="entry-title">Independent Research <span class="badge badge--tag">SOLO</span></p>
-          <p class="entry-desc">Self-directed work on black-box optimization and visual model compression and acceleration.</p>
-          <p class="entry-meta"><span class="entry-year">No supervising lab</span></p>
-        </div>
-      </div>
-
+      </details>
     </div>
   </section>
 
@@ -719,10 +808,10 @@
       <div class="row">
         <span class="row-index">01</span>
         <div>
-          <p class="entry-title">Jilin University, College of Artificial Intelligence</p>
-          <p class="entry-authors">B.Eng. in Artificial Intelligence</p>
-          <p class="entry-meta"><span class="entry-year">Aug 2024 &ndash; Present</span></p>
+          <p class="entry-note"><strong>Jilin University</strong>, College of Artificial Intelligence &mdash; B.Eng. in Artificial Intelligence</p>
+          <p class="entry-small">GPA 3.74/4 &middot; ranked 10/73 (top 13%)</p>
         </div>
+        <span class="entry-when">Aug 2024 &ndash; Present</span>
       </div>
     </div>
   </section>
@@ -731,7 +820,9 @@
     <h2 class="section-label">Publications</h2>
     <div class="section-body">
 
-      <p class="pub-caption">Click a paper to expand authors, a one-line summary, and links.</p>
+      <details class="fold">
+        <summary>14 publications &middot; 3 accepted</summary>
+        <div class="fold-body">
 
       <details class="pub">
         <summary>
@@ -974,6 +1065,8 @@
         </div>
       </details>
 
+        </div>
+      </details>
     </div>
   </section>
 
@@ -1095,6 +1188,108 @@
   window.addEventListener('load', function () { measure(); update(); });
   measure();
   update();
+})();
+</script>
+
+<script>
+(function () {
+  var IMAGES = [
+      'assets/bg/bg01.jpg',
+      'assets/bg/bg02.jpg',
+      'assets/bg/bg03.jpg',
+      'assets/bg/bg04.jpg',
+      'assets/bg/bg05.jpg',
+      'assets/bg/bg06.jpg',
+      'assets/bg/bg07.jpg',
+      'assets/bg/bg08.jpg',
+      'assets/bg/bg09.jpg',
+      'assets/bg/bg10.jpg',
+      'assets/bg/bg11.jpg',
+      'assets/bg/bg12.jpg',
+      'assets/bg/bg13.jpg',
+      'assets/bg/bg14.jpg',
+      'assets/bg/bg15.jpg',
+      'assets/bg/bg16.jpg'
+  ];
+  var body = document.body;
+  var prev = document.getElementById('bg-prev');
+  var next = document.getElementById('bg-next');
+  var toggle = document.getElementById('bg-toggle');
+  var index = Math.floor(Math.random() * IMAGES.length);
+  var off = false;
+  var restored = false;
+
+  try {
+    var stored = parseInt(localStorage.getItem('bgIndex'), 10);
+    if (!isNaN(stored) && stored >= 0 && stored < IMAGES.length) { index = stored; restored = true; }
+    off = localStorage.getItem('bgOff') === '1';
+  } catch (e) {}
+
+  if (!restored) {
+    try { localStorage.setItem('bgIndex', String(index)); } catch (e) {}
+  }
+
+  function paint() {
+    toggle.setAttribute('aria-pressed', String(!off));
+    toggle.setAttribute('aria-label', off ? 'Show background image' : 'Hide background image');
+    if (off) {
+      body.classList.add('bg-off');
+      body.classList.remove('bg-ready');
+      return;
+    }
+    body.classList.remove('bg-off');
+    var url = IMAGES[index];
+    var probe = new Image();
+    probe.onload = function () {
+      body.style.setProperty('--bg-image', 'url("' + url + '")');
+      body.classList.add('bg-ready');
+    };
+    probe.onerror = function () { body.classList.remove('bg-ready'); };
+    probe.src = url;
+  }
+
+  function step(delta) {
+    index = (index + delta + IMAGES.length) % IMAGES.length;
+    off = false;
+    try {
+      localStorage.setItem('bgIndex', String(index));
+      localStorage.setItem('bgOff', '0');
+    } catch (e) {}
+    paint();
+  }
+
+  prev.addEventListener('click', function () { step(-1); });
+  next.addEventListener('click', function () { step(1); });
+  toggle.addEventListener('click', function () {
+    off = !off;
+    try { localStorage.setItem('bgOff', off ? '1' : '0'); } catch (e) {}
+    paint();
+  });
+
+  paint();
+})();
+</script>
+
+<script>
+(function () {
+  function openAncestors(el) {
+    var node = el;
+    while (node) {
+      if (node.tagName === 'DETAILS') { node.open = true; }
+      node = node.parentElement;
+    }
+  }
+  function reveal() {
+    if (!location.hash || location.hash.length < 2) { return; }
+    var target = document.getElementById(location.hash.slice(1));
+    if (!target) { return; }
+    openAncestors(target);
+    window.requestAnimationFrame(function () {
+      target.scrollIntoView({ block: 'start' });
+    });
+  }
+  window.addEventListener('hashchange', reveal);
+  reveal();
 })();
 </script>
 </body>

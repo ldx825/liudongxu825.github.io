@@ -21,41 +21,39 @@ Optimization; Spiking Neural Networks; Model Compression; LLM Agents; Embodied A
 
 ## News
 
-+ NeurIPS 2026: Our paper "Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective" was accepted.
-+ AISTATS 2026: Our paper "Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization" was accepted.
-+ AAAI 2026: Our paper "Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding" was accepted.
+Rendered as a collapsed disclosure ("5 updates"). The right column carries the month of the
+acceptance announcement; the venue is shown in small text beneath the paper title.
+
++ Sep 2026: Our paper "Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective" was accepted to NeurIPS 2026 (notifications 24 Sep 2026).
++ Jan 2026: Our paper "Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization" was accepted to AISTATS 2026 (paper decisions 22 Jan 2026).
++ Nov 2025: Our paper "Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding" was accepted to AAAI 2026 (notifications 8 Nov 2025).
 + Jan 2025: Started my research journey at the College of Artificial Intelligence, Jilin University.
 + Aug 2024: Began undergraduate studies in Artificial Intelligence at Jilin University.
 
 ## Experience
 
-Short codes in square brackets are reused as tags on publication rows.
-
-### Jilin University, College of Artificial Intelligence [JLU-AI]
-
-Research Intern — with Bin Gu, Wanli Shi, Zhaogeng Liu and Tianxing Man.
-Optimization theory, spiking neural networks, model compression and acceleration.
-Jan 2025 - Mar 2026.
+Rendered as a collapsed disclosure ("3 research positions"), newest first.
 
 ### Shanghai Jiao Tong University, AutoLab / Awaken Robotics [SJTU-AI]
 
-Research Intern — with Zhipeng Zhang.
-VLA, World Action Models (WAM), and embodied intelligence.
+Research Intern with Zhipeng Zhang. VLA, World Action Models (WAM), and embodied intelligence.
 Mar 2026 - Present.
 
 ### Jilin University, College of Artificial Intelligence [JLU-Agent]
 
-Research Intern — with Yuan Wu.
-LLM agents and recursive self-improvement (RSI).
+Research Intern with Yuan Wu. LLM agents and recursive self-improvement (RSI).
 Jul 2026 - Oct 2026.
 
-### Independent Research [SOLO]
+### Jilin University, College of Artificial Intelligence [JLU-AI]
 
-Self-directed work on black-box optimization and visual model compression and acceleration.
+Research Intern with Bin Gu, Wanli Shi, Zhaogeng Liu and Tianxing Man.
+Optimization theory, spiking neural networks, model compression and acceleration.
+Jan 2025 - Mar 2026.
 
 ## Education
 
-Jilin University, College of Artificial Intelligence, B.Eng. in Artificial Intelligence. Aug 2024 - Present.
+Jilin University, College of Artificial Intelligence - B.Eng. in Artificial Intelligence.
+GPA 3.74/4, ranked 10/73 (top 13%). Aug 2024 - Present.
 
 ## Publications
 
