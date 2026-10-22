@@ -21,10 +21,11 @@ Optimization; Spiking Neural Networks; Model Compression; LLM Agents; Embodied A
 
 ## News
 
-+ Jul 2026: Started a research internship with Prof. Yuan Wu at Jilin University, working on LLM agents and recursive self-improvement.
-+ Mar 2026: Joined AutoLab / Awaken Robotics at Shanghai Jiao Tong University as a research intern with Prof. Zhipeng Zhang, working on VLA and World Action Models.
-+ Jan 2025: Started a research internship at the College of Artificial Intelligence, Jilin University, with Profs. Bin Gu, Wanli Shi, Zhaogeng Liu and Tianxing Man, on optimization theory and spiking neural networks.
-+ Aug 2024: Began undergraduate studies in the College of Artificial Intelligence at Jilin University.
++ NeurIPS 2026: Our paper "Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective" was accepted.
++ AISTATS 2026: Our paper "Zeroth-Order Stochastic Compositional Gradient Descent: Towards Black-Box Sparse AUC Maximization" was accepted.
++ AAAI 2026: Our paper "Towards Nonlinear Sparse AUC Maximization via Compositional Stochastic Hard Thresholding" was accepted.
++ Jan 2025: Started my research journey at the College of Artificial Intelligence, Jilin University.
++ Aug 2024: Began undergraduate studies in Artificial Intelligence at Jilin University.
 
 ## Experience
 
@@ -32,19 +33,19 @@ Short codes in square brackets are reused as tags on publication rows.
 
 ### Jilin University, College of Artificial Intelligence [JLU-AI]
 
-Research Intern ? with Bin Gu, Wanli Shi, Zhaogeng Liu and Tianxing Man.
+Research Intern — with Bin Gu, Wanli Shi, Zhaogeng Liu and Tianxing Man.
 Optimization theory, spiking neural networks, model compression and acceleration.
 Jan 2025 - Mar 2026.
 
 ### Shanghai Jiao Tong University, AutoLab / Awaken Robotics [SJTU-AI]
 
-Research Intern ? with Zhipeng Zhang.
+Research Intern — with Zhipeng Zhang.
 VLA, World Action Models (WAM), and embodied intelligence.
 Mar 2026 - Present.
 
 ### Jilin University, College of Artificial Intelligence [JLU-Agent]
 
-Research Intern ? with Yuan Wu.
+Research Intern — with Yuan Wu.
 LLM agents and recursive self-improvement (RSI).
 Jul 2026 - Oct 2026.
 
@@ -54,11 +55,7 @@ Self-directed work on black-box optimization and visual model compression and ac
 
 ## Education
 
-Jilin University, College of Artificial Intelligence, B.Eng. in Artificial Intelligence.
-Weighted average 90/100, GPA 3.74/4, ranked 10/73 (top 13%). First-Class Scholarship and Outstanding Student of Jilin University.
-Selected courses: Deep Learning 97.6, Machine Learning and Pattern Recognition 94.6, Programming Fundamentals 94.8, Calculus 95.1, Linear Algebra 94.3.
-CET-4 556, CET-6 449.
-Aug 2024 - Present.
+Jilin University, College of Artificial Intelligence, B.Eng. in Artificial Intelligence. Aug 2024 - Present.
 
 ## Publications
 
@@ -70,6 +67,7 @@ Tags link to the corresponding entry in Experience.
 + Hybrid Zeroth- and First-Order Method for Stochastic Nonsmooth Minimax Optimization, ICLR 2027. Third author. Under review. [JLU-AI] Paper: https://openreview.net/forum?id=5S23ZjJMXd Code: https://github.com/ldx825/ZOFOGDA_Nips26
 + Rethinking Gradient Approximation in Quantization: A Zeroth-Order Expectation Perspective, Wenkang Wang, Jia Zhang, Zelin Wei, Dongxu Liu, Wanli Shi, Bin Gu*, NeurIPS 2026. Co-first author. Published. [JLU-AI] Paper: https://openreview.net/forum?id=0ZZ3tyBGyc Code: https://github.com/wangwk699/ZOE_Grad
 + FG-DMARS: Fine-Grained Multi-Agent Review for Cost-Efficient and Stable LLM Reasoning. Corresponding author; supervised the final-year project of a senior student in the college. [JLU-AI]
++ Spiking LLM Deployment on Neuromorphic Hardware (Lynxi KA200). Core contributor. Project, not a paper. Spiking large language models, mapping operators onto the chip, on-device inference, and hardware/software co-debugging. [JLU-AI] Project: https://app.notion.com/p/22464f205f65808d9657c220cf599551 Code: https://github.com/JLU-Solar/snn-chat-demo
 + WAM-Adapter: Efficiently Adapting Video-DiT World Representations to Robot Actions, ICLR 2027. First author. Under review. [SJTU-AI] Code: https://github.com/ldx825/WAM-Adapter Project: https://ldx825.github.io/WAM-Adapter-Homepage/
 + AutoPrune-Plus: Is the Most Attended View Deserve the Most Tokens?, TPAMI. Co-first author. Under review. [SJTU-AI] Paper: https://cn.overleaf.com/read/dymsxfncryzt Code: https://github.com/ldx825/vla_vlm-pruning-method
 + TaskMatch: Learning Task-Aware Relevance Beyond Semantic Similarity for Agent Harnesses, ICLR 2027. First author. Under review. [JLU-Agent] Paper: https://www.preprints.org/manuscript/202610.0778 Code: https://github.com/ldx825/learned-relevance-scorer-agent-retrieval
@@ -78,23 +76,19 @@ Tags link to the corresponding entry in Experience.
 + Context-Dependent Precision Utility for Mixed-Precision Object Detection, ICASSP 2027. First author. Under review. [SOLO] Paper: https://github.com/ldx825/Mixed-Precision-Object-Detection_ICASSP-2027/blob/main/paper/main.pdf Code: https://github.com/ldx825/Mixed-Precision-Object-Detection_ICASSP-2027
 + Certified Zeroth-Order Exact Penalization for Black-Box Sparsity-Constrained Optimization, ICASSP 2027. First author. Under review. [SOLO] Paper: https://github.com/ldx825/ZO-IDEP_ICASSP-2027/blob/main/ZO_IDEP_ICASSP2027/main.pdf Code: https://github.com/ldx825/ZO-IDEP_ICASSP-2027
 
-## Projects
-
-+ Spiking LLM Deployment on Neuromorphic Hardware (Lynxi KA200) - Core contributor. Spiking large language models, mapping operators onto the chip, on-device inference, and hardware/software co-debugging. [JLU-AI] Project: https://app.notion.com/p/22464f205f65808d9657c220cf599551 Code: https://github.com/JLU-Solar/snn-chat-demo
-+ Machine Learning from Scratch - Implementations of classical machine learning algorithms from scratch, including k-NN, Naive Bayes, Decision Tree, Logistic Regression, SVM, Random Forest, AdaBoost, k-means, PCA, SVD, Apriori, and FP-growth.
-+ Spiking Neural Networks on Event-Camera Datasets - SNN projects on event-camera data, together with evolutionary algorithms for TSP and C/C++ game development practice.
-
 ## Selected Awards
 
 + 2025 - Jilin University First-Class Scholarship
 + 2025 - Jilin University Outstanding Student
 + 2025 - National College Students Mathematics Competition, Provincial Second Prize
 
+Rendered as a collapsed disclosure ("3 awards").
+
 ## Services
 
 + Reviewer, International Conference on Learning Representations (ICLR 2027)
 + Reviewer, IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP 2027)
 
-## Skills
+Displayed as a collapsed disclosure ("2 reviewer roles").
 
-Python; PyTorch; C; C++; Linux; Git; tmux
+Rendered as a collapsed disclosure ("2 reviewer roles").
